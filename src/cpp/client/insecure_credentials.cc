@@ -31,6 +31,7 @@ class InsecureChannelCredentialsImpl final : public ChannelCredentials {
  public:
   std::shared_ptr<Channel> CreateChannelImpl(
       const grpc::string& target, const ChannelArguments& args) override {
+puts("CreateChannelImpl in insecure_credentials.cc");
     return CreateChannelWithInterceptors(
         target, args,
         std::vector<std::unique_ptr<
@@ -42,6 +43,7 @@ class InsecureChannelCredentialsImpl final : public ChannelCredentials {
       std::vector<std::unique_ptr<
           grpc::experimental::ClientInterceptorFactoryInterface>>
           interceptor_creators) override {
+puts("CreateChannelWithInterceptors in insecure_creddentials.cc");
     grpc_channel_args channel_args;
     args.SetChannelArgs(&channel_args);
     return ::grpc::CreateChannelInternal(

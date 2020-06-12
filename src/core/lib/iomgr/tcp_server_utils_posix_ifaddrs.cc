@@ -56,6 +56,7 @@ static grpc_tcp_listener* find_listener_with_addr(grpc_tcp_server* s,
 
 /* Bind to "::" to get a port number not used by any address. */
 static grpc_error* get_unused_port(int* port) {
+puts("get_unused_port in tcp_server_posix_ifaddr");
   grpc_resolved_address wild;
   grpc_sockaddr_make_wildcard6(0, &wild);
   grpc_dualstack_mode dsmode;

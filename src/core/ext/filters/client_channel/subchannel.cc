@@ -822,6 +822,7 @@ void Subchannel::CancelConnectivityStateWatch(
 }
 
 void Subchannel::AttemptToConnect() {
+puts("Attempt to connect in subchannel.cc");
   MutexLock lock(&mu_);
   MaybeStartConnectingLocked();
 }
@@ -914,6 +915,7 @@ void Subchannel::SetConnectivityStateLocked(grpc_connectivity_state state) {
 }
 
 void Subchannel::MaybeStartConnectingLocked() {
+puts("MaybeStartConnectingLocked in subchannel.cc");
   if (disconnected_) {
     // Don't try to connect if we're already disconnected.
     return;
@@ -952,6 +954,7 @@ void Subchannel::OnRetryAlarm(void* arg, grpc_error* error) {
   Subchannel* c = static_cast<Subchannel*>(arg);
   // TODO(soheilhy): Once subchannel refcounting is simplified, we can get use
   //                 MutexLock instead of ReleasableMutexLock, here.
+puts("OnRetryAlarm in subchannel.cc");
   ReleasableMutexLock lock(&c->mu_);
   c->have_retry_alarm_ = false;
   if (c->disconnected_) {
@@ -975,6 +978,7 @@ void Subchannel::OnRetryAlarm(void* arg, grpc_error* error) {
 }
 
 void Subchannel::ContinueConnectingLocked() {
+puts("ContinueConnectingLocked in subchannel.cc");
   SubchannelConnector::Args args;
   args.interested_parties = pollset_set_;
   const grpc_millis min_deadline =

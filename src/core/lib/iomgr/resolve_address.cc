@@ -45,6 +45,7 @@ void grpc_resolved_addresses_destroy(grpc_resolved_addresses* addrs) {
 grpc_error* grpc_blocking_resolve_address(const char* name,
                                           const char* default_port,
                                           grpc_resolved_addresses** addresses) {
+puts("In grpc_blocking_resolve_address in resolve_addr.cc");
   return grpc_resolve_address_impl->blocking_resolve_address(name, default_port,
                                                              addresses);
 }

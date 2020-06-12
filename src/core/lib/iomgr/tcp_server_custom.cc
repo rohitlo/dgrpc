@@ -339,6 +339,7 @@ static grpc_error* tcp_server_add_port(grpc_tcp_server* s,
                                        const grpc_resolved_address* addr,
                                        int* port) {
   // This function is mostly copied from tcp_server_windows.c
+puts("tcp_server_add_port in tcp_server_custom.cc");
   grpc_tcp_listener* sp = nullptr;
   grpc_custom_socket* socket;
   grpc_resolved_address addr6_v4mapped;

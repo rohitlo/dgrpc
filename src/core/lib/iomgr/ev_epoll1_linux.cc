@@ -324,6 +324,7 @@ static void fork_fd_list_remove_grpc_fd(grpc_fd* fd) {
 }
 
 static grpc_fd* fd_create(int fd, const char* name, bool track_err) {
+puts("fd_create in ev_epollex_linux.cc");
   grpc_fd* new_fd = nullptr;
 
   gpr_mu_lock(&fd_freelist_mu);

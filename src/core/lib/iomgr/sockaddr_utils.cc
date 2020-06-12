@@ -90,12 +90,14 @@ int grpc_sockaddr_to_v4mapped(const grpc_resolved_address* resolved_addr,
 
 int grpc_sockaddr_is_wildcard(const grpc_resolved_address* resolved_addr,
                               int* port_out) {
+puts("grpc_sockaddr_is_wildcard in sockaddr_utils.cc");
   const grpc_sockaddr* addr;
   grpc_resolved_address addr4_normalized;
   if (grpc_sockaddr_is_v4mapped(resolved_addr, &addr4_normalized)) {
     resolved_addr = &addr4_normalized;
   }
   addr = reinterpret_cast<const grpc_sockaddr*>(resolved_addr->addr);
+    printf("Addr sa_family : %d\n", addr->sa_family);
   if (addr->sa_family == GRPC_AF_INET) {
     /* Check for 0.0.0.0 */
     const grpc_sockaddr_in* addr4 =
@@ -259,6 +261,7 @@ int grpc_sockaddr_get_family(const grpc_resolved_address* resolved_addr) {
 }
 
 int grpc_sockaddr_get_port(const grpc_resolved_address* resolved_addr) {
+puts("grpc_sockaddr_get_port in sockaddr_utils.cc");
   const grpc_sockaddr* addr =
       reinterpret_cast<const grpc_sockaddr*>(resolved_addr->addr);
   switch (addr->sa_family) {
@@ -278,8 +281,13 @@ int grpc_sockaddr_get_port(const grpc_resolved_address* resolved_addr) {
 
 int grpc_sockaddr_set_port(const grpc_resolved_address* resolved_addr,
                            int port) {
+puts("grpc_sockaddr_set_port in sockaddr_utils.cc");
+printf("port param : %d",port);
+
+
   const grpc_sockaddr* addr =
       reinterpret_cast<const grpc_sockaddr*>(resolved_addr->addr);
+printf("addr family : %d ",addr->sa_family);
   switch (addr->sa_family) {
     case GRPC_AF_INET:
       GPR_ASSERT(port >= 0 && port < 65536);

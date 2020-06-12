@@ -34,6 +34,7 @@ extern grpc_custom_timer_vtable uv_timer_vtable;
 extern grpc_custom_poller_vtable uv_pollset_vtable;
 
 void grpc_set_default_iomgr_platform() {
+puts("grpc_set_default_iomgr_platform in iomgr_uv.cc");
   grpc_custom_iomgr_init(&grpc_uv_socket_vtable, &uv_resolver_vtable,
                          &uv_timer_vtable, &uv_pollset_vtable);
 }

@@ -19,7 +19,7 @@
 #include <grpc/support/port_platform.h>
 
 #include "src/core/lib/iomgr/port.h"
-#ifdef GRPC_POSIX_SOCKET_RESOLVE_ADDRESS
+#ifdef GRPC_POSIX_SOCKET_RESOLVE_ADDRES
 
 #include "src/core/lib/iomgr/sockaddr.h"
 
@@ -45,6 +45,7 @@
 static grpc_error* posix_blocking_resolve_address(
     const char* name, const char* default_port,
     grpc_resolved_addresses** addresses) {
+puts("Posix blocking resolve addr called from resolve_addr_posix.cc");
   grpc_core::ExecCtx exec_ctx;
   struct addrinfo hints;
   struct addrinfo *result = nullptr, *resp;
@@ -164,6 +165,7 @@ static void posix_resolve_address(const char* name, const char* default_port,
                                   grpc_pollset_set* /*interested_parties*/,
                                   grpc_closure* on_done,
                                   grpc_resolved_addresses** addrs) {
+    puts("In posix resolver address");
   request* r = static_cast<request*>(gpr_malloc(sizeof(request)));
   GRPC_CLOSURE_INIT(&r->request_closure, do_request_thread, r, nullptr);
   r->name = gpr_strdup(name);

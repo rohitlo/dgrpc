@@ -49,6 +49,7 @@ grpc_byte_buffer* grpc_raw_compressed_byte_buffer_create(
 
 grpc_byte_buffer* grpc_raw_byte_buffer_from_reader(
     grpc_byte_buffer_reader* reader) {
+puts("grpc_raw_byte_buffer_from_reader in byte_buffer.cc");
   grpc_byte_buffer* bb =
       static_cast<grpc_byte_buffer*>(gpr_malloc(sizeof(grpc_byte_buffer)));
   grpc_slice slice;

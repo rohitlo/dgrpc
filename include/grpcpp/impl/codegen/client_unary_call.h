@@ -49,6 +49,7 @@ class BlockingUnaryCallImpl {
   BlockingUnaryCallImpl(ChannelInterface* channel, const RpcMethod& method,
                         grpc_impl::ClientContext* context,
                         const InputMessage& request, OutputMessage* result) {
+puts("In BlockUnaryCallImpl cotr in client_uanru_call.h");
     ::grpc_impl::CompletionQueue cq(grpc_completion_queue_attributes{
         GRPC_CQ_CURRENT_VERSION, GRPC_CQ_PLUCK, GRPC_CQ_DEFAULT_POLLING,
         nullptr});  // Pluckable completion queue

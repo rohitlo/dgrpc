@@ -254,6 +254,7 @@ bool grpc_event_engine_run_in_background(void) {
 grpc_fd* grpc_fd_create(int fd, const char* name, bool track_err) {
   GRPC_POLLING_API_TRACE("fd_create(%d, %s, %d)", fd, name, track_err);
   GRPC_FD_TRACE("fd_create(%d, %s, %d)", fd, name, track_err);
+puts("grpc_fd_create in ev_posix.cc");
   return g_event_engine->fd_create(
       fd, name, track_err && grpc_event_engine_can_track_errors());
 }

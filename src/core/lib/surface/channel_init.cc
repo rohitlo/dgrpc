@@ -39,6 +39,7 @@ static stage_slots g_slots[GRPC_NUM_CHANNEL_STACK_TYPES];
 static bool g_finalized;
 
 void grpc_channel_init_init(void) {
+puts("grpc_channel_init_init in channel_init.cc");
   for (int i = 0; i < GRPC_NUM_CHANNEL_STACK_TYPES; i++) {
     g_slots[i].slots = nullptr;
     g_slots[i].num_slots = 0;
@@ -51,6 +52,7 @@ void grpc_channel_init_register_stage(grpc_channel_stack_type type,
                                       int priority,
                                       grpc_channel_init_stage stage,
                                       void* stage_arg) {
+puts("grpc_channel_init_register_stage in channel_init.cc");
   GPR_ASSERT(!g_finalized);
   if (g_slots[type].cap_slots == g_slots[type].num_slots) {
     g_slots[type].cap_slots = GPR_MAX(8, 3 * g_slots[type].cap_slots / 2);
@@ -75,6 +77,7 @@ static int compare_slots(const void* a, const void* b) {
 }
 
 void grpc_channel_init_finalize(void) {
+puts("grpc_channel_init_finalize in channel_init.cc");
   GPR_ASSERT(!g_finalized);
   for (int i = 0; i < GRPC_NUM_CHANNEL_STACK_TYPES; i++) {
     qsort(g_slots[i].slots, g_slots[i].num_slots, sizeof(*g_slots[i].slots),
@@ -84,6 +87,7 @@ void grpc_channel_init_finalize(void) {
 }
 
 void grpc_channel_init_shutdown(void) {
+puts("grpc_channel_init_shutdown in channel_init.cc");
   for (int i = 0; i < GRPC_NUM_CHANNEL_STACK_TYPES; i++) {
     gpr_free(g_slots[i].slots);
     g_slots[i].slots =
@@ -93,6 +97,7 @@ void grpc_channel_init_shutdown(void) {
 
 bool grpc_channel_init_create_stack(grpc_channel_stack_builder* builder,
                                     grpc_channel_stack_type type) {
+puts("grpc_channel_init_create_stack in channel_init.cc");
   GPR_ASSERT(g_finalized);
 
   grpc_channel_stack_builder_set_name(builder,

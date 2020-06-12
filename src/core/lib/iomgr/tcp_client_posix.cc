@@ -65,6 +65,7 @@ typedef struct {
 
 static grpc_error* prepare_socket(const grpc_resolved_address* addr, int fd,
                                   const grpc_channel_args* channel_args) {
+puts("prepare_socket in tcp_client_posix");
   grpc_error* err = GRPC_ERROR_NONE;
 
   GPR_ASSERT(fd >= 0);
@@ -123,10 +124,12 @@ static void tc_on_alarm(void* acp, grpc_error* error) {
 
 grpc_endpoint* grpc_tcp_client_create_from_fd(
     grpc_fd* fd, const grpc_channel_args* channel_args, const char* addr_str) {
+puts("grpc_tcp_client_create_from_fd in tcp_client_posix.cc");
   return grpc_tcp_create(fd, channel_args, addr_str);
 }
 
 static void on_writable(void* acp, grpc_error* error) {
+puts("on_writable in tcp_client_posix.cc");
   async_connect* ac = static_cast<async_connect*>(acp);
   int so_error = 0;
   socklen_t so_error_size;
@@ -248,6 +251,7 @@ grpc_error* grpc_tcp_client_prepare_fd(const grpc_channel_args* channel_args,
                                        const grpc_resolved_address* addr,
                                        grpc_resolved_address* mapped_addr,
                                        int* fd) {
+puts("grpc_tcp_client_prepare_fd in tcp_client_posix.cc");
   grpc_dualstack_mode dsmode;
   grpc_error* error;
   *fd = -1;
@@ -279,6 +283,7 @@ void grpc_tcp_client_create_from_prepared_fd(
     grpc_pollset_set* interested_parties, grpc_closure* closure, const int fd,
     const grpc_channel_args* channel_args, const grpc_resolved_address* addr,
     grpc_millis deadline, grpc_endpoint** ep) {
+puts("grpc_tcp_client_create_from_prepared_fd in tcp_client_posix.cc");
   int err;
   async_connect* ac;
   do {
@@ -339,6 +344,7 @@ static void tcp_connect(grpc_closure* closure, grpc_endpoint** ep,
                         const grpc_channel_args* channel_args,
                         const grpc_resolved_address* addr,
                         grpc_millis deadline) {
+puts("tcp_connect in tcp_client_posix.cc");
   grpc_resolved_address mapped_addr;
   int fd = -1;
   grpc_error* error;
@@ -353,5 +359,5 @@ static void tcp_connect(grpc_closure* closure, grpc_endpoint** ep,
                                           ep);
 }
 
-grpc_tcp_client_vtable grpc_posix_tcp_client_vtable = {tcp_connect};
+grpc_tcp_client_vtable grpc_posix_tcp_client_vtable = { tcp_connect};
 #endif

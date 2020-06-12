@@ -27,11 +27,13 @@ namespace grpc {
 
 static inline std::shared_ptr<Channel> CreateInsecureChannelFromFd(
     const grpc::string& target, int fd) {
+puts("CreateInsecureChannelFromFd in create_channel_posix.h");
   return ::grpc_impl::CreateInsecureChannelFromFd(target, fd);
 }
 
 static inline std::shared_ptr<Channel> CreateCustomInsecureChannelFromFd(
     const grpc::string& target, int fd, const ChannelArguments& args) {
+puts("CreateCustomInsecureChannelFromFd in create_channel_posix.h");
   return ::grpc_impl::CreateCustomInsecureChannelFromFd(target, fd, args);
 }
 

@@ -364,6 +364,8 @@ static void unref_by(grpc_fd* fd, int n) {
 
 static grpc_fd* fd_create(int fd, const char* name, bool track_err) {
   // Avoid unused-parameter warning for debug-only parameter
+
+puts("fd create in ev_poll_posix.cc");
   (void)track_err;
   GPR_DEBUG_ASSERT(track_err == false);
   grpc_fd* r = static_cast<grpc_fd*>(gpr_malloc(sizeof(*r)));

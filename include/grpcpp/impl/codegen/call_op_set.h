@@ -415,6 +415,7 @@ Status CallOpSendMessage::SendMessagePtr(const M* message,
 template <class M>
 Status CallOpSendMessage::SendMessagePtr(const M* message) {
   msg_ = message;
+  
   return SendMessage(*message, WriteOptions());
 }
 

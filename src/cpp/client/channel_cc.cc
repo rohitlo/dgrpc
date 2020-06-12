@@ -53,6 +53,7 @@ Channel::Channel(const grpc::string& host, grpc_channel* channel,
                      ::grpc::experimental::ClientInterceptorFactoryInterface>>
                      interceptor_creators)
     : host_(host), c_channel_(channel) {
+puts("Channel in channel_cc.cc");
   interceptor_creators_ = std::move(interceptor_creators);
   g_gli_initializer.summon();
 }

@@ -80,6 +80,7 @@ static void gc_completed_threads(void) {
 }
 
 static void start_timer_thread_and_unlock(void) {
+puts("start_timer_thread_and_unlock in timer_manager.cc");
   GPR_ASSERT(g_threaded);
   ++g_waiter_count;
   ++g_thread_count;
@@ -287,6 +288,7 @@ static void timer_thread(void* completed_thread_ptr) {
 }
 
 static void start_threads(void) {
+puts("start_threads in timer_manager.cc");
   gpr_mu_lock(&g_mu);
   if (!g_threaded) {
     g_threaded = true;
@@ -297,6 +299,7 @@ static void start_threads(void) {
 }
 
 void grpc_timer_manager_init(void) {
+puts("grpc_timer_manager_init in timer_manager.cc");
   gpr_mu_init(&g_mu);
   gpr_cv_init(&g_cv_wait);
   gpr_cv_init(&g_cv_shutdown);

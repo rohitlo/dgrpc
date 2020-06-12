@@ -27,6 +27,7 @@ void grpc_tcp_client_connect(grpc_closure* closure, grpc_endpoint** ep,
                              const grpc_channel_args* channel_args,
                              const grpc_resolved_address* addr,
                              grpc_millis deadline) {
+puts("grpc_tcp_client_connect in tcp_client.cc");
   grpc_tcp_client_impl->connect(closure, ep, interested_parties, channel_args,
                                 addr, deadline);
 }

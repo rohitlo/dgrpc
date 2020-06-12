@@ -123,6 +123,7 @@ void grpc_register_plugin(void (*init)(void), void (*destroy)(void)) {
 }
 
 void grpc_init(void) {
+puts("grpc_init in init.cc");
   int i;
   gpr_once_init(&g_basic_init, do_basic_init);
 

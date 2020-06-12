@@ -50,6 +50,7 @@ Chttp2Connector::~Chttp2Connector() {
 
 void Chttp2Connector::Connect(const Args& args, Result* result,
                               grpc_closure* notify) {
+puts("Connect in chhtp2_connector.cc");
   grpc_resolved_address addr;
   Subchannel::GetAddressFromSubchannelAddressArg(args.channel_args, &addr);
   grpc_endpoint** ep;

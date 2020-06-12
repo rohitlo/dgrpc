@@ -1,0 +1,7 @@
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/greeter_server.dir
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/edit_cache.dir
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/greeter_client.dir
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/greeter_async_client.dir
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/rebuild_cache.dir
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/greeter_async_client2.dir
+/home/linuxmint/grpc/examples/cpp/helloworld/cmake/build/CMakeFiles/greeter_async_server.dir

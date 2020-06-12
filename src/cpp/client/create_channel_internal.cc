@@ -29,6 +29,7 @@ std::shared_ptr<Channel> CreateChannelInternal(
     std::vector<std::unique_ptr<
         ::grpc::experimental::ClientInterceptorFactoryInterface>>
         interceptor_creators) {
+puts("CreateChannelInternal in create_channel_internal.cc");
   return std::shared_ptr<Channel>(
       new Channel(host, c_channel, std::move(interceptor_creators)));
 }

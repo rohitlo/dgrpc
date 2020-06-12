@@ -75,6 +75,7 @@ static void maybe_embiggen(grpc_slice_buffer* sb) {
 }
 
 void grpc_slice_buffer_init(grpc_slice_buffer* sb) {
+puts("grpc_slice_buffer_init in slice_buffer.cc");
   sb->count = 0;
   sb->length = 0;
   sb->capacity = GRPC_SLICE_BUFFER_INLINE_ELEMENTS;

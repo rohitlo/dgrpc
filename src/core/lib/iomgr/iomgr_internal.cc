@@ -31,6 +31,7 @@ void grpc_set_iomgr_platform_vtable(grpc_iomgr_platform_vtable* vtable) {
 }
 
 void grpc_determine_iomgr_platform() {
+puts("grpc_iomgr_platform in iomgr_internal.cc ");
   if (iomgr_platform_vtable == nullptr) {
     grpc_set_default_iomgr_platform();
   }

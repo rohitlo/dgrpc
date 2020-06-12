@@ -390,6 +390,7 @@ grpc_error* grpc_chttp2_server_add_port(grpc_server* server, const char* addr,
       count++;
     }
   }
+puts("after looping out of tcp_server_add in chttp2_server.cc");
   if (count == 0) {
     char* msg;
     gpr_asprintf(&msg, "No address added out of total %" PRIuPTR " resolved",

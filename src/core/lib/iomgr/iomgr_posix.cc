@@ -33,11 +33,11 @@
 #include "src/core/lib/iomgr/timer.h"
 
 extern grpc_tcp_server_vtable grpc_posix_tcp_server_vtable;
-extern grpc_tcp_client_vtable grpc_posix_tcp_client_vtable;
+extern grpc_tcp_client_vtable d_grpc_posix_tcp_client_vtable;
 extern grpc_timer_vtable grpc_generic_timer_vtable;
 extern grpc_pollset_vtable grpc_posix_pollset_vtable;
 extern grpc_pollset_set_vtable grpc_posix_pollset_set_vtable;
-extern grpc_address_resolver_vtable grpc_posix_resolver_vtable;
+extern grpc_address_resolver_vtable d_grpc_posix_resolver_vtable;
 
 static void iomgr_platform_init(void) {
   grpc_wakeup_fd_global_init();
@@ -73,12 +73,13 @@ static grpc_iomgr_platform_vtable vtable = {
     iomgr_platform_add_closure_to_background_poller};
 
 void grpc_set_default_iomgr_platform() {
-  grpc_set_tcp_client_impl(&grpc_posix_tcp_client_vtable);
+puts("posix IOMGR in iomgr_posix.cc");
+  grpc_set_tcp_client_impl(&d_grpc_posix_tcp_client_vtable);
   grpc_set_tcp_server_impl(&grpc_posix_tcp_server_vtable);
   grpc_set_timer_impl(&grpc_generic_timer_vtable);
   grpc_set_pollset_vtable(&grpc_posix_pollset_vtable);
   grpc_set_pollset_set_vtable(&grpc_posix_pollset_set_vtable);
-  grpc_set_resolver_impl(&grpc_posix_resolver_vtable);
+  grpc_set_resolver_impl(&d_grpc_posix_resolver_vtable);
   grpc_set_iomgr_platform_vtable(&vtable);
 }
 

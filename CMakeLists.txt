@@ -1097,6 +1097,12 @@ add_library(alts_test_util
   src/core/lib/iomgr/socket_utils_common_posix.cc
   src/core/lib/iomgr/socket_utils_linux.cc
   src/core/lib/iomgr/socket_utils_posix.cc
+  src/core/lib/iomgr/d_resolve_address_posix.cc
+  src/core/lib/iomgr/d_socket_utils_common_posix.cc
+  src/core/lib/iomgr/d_socket_utils_posix.cc
+  src/core/lib/iomgr/d_tcp_server_posix.cc
+  src/core/lib/iomgr/d_tcp_server_utils_posix_common.cc
+  src/core/lib/iomgr/d_unix_sockets_posix.cc
   src/core/lib/iomgr/socket_utils_uv.cc
   src/core/lib/iomgr/socket_utils_windows.cc
   src/core/lib/iomgr/socket_windows.cc
@@ -1104,10 +1110,13 @@ add_library(alts_test_util
   src/core/lib/iomgr/tcp_client_cfstream.cc
   src/core/lib/iomgr/tcp_client_custom.cc
   src/core/lib/iomgr/tcp_client_posix.cc
+   src/core/lib/iomgr/d_tcp_client_posix.cc
   src/core/lib/iomgr/tcp_client_windows.cc
+src/core/lib/iomgr/d_tcp_client.cc
   src/core/lib/iomgr/tcp_custom.cc
   src/core/lib/iomgr/tcp_posix.cc
   src/core/lib/iomgr/tcp_server.cc
+  src/core/lib/iomgr/d_tcp_server.cc
   src/core/lib/iomgr/tcp_server_custom.cc
   src/core/lib/iomgr/tcp_server_posix.cc
   src/core/lib/iomgr/tcp_server_utils_posix_common.cc
@@ -1592,17 +1601,26 @@ add_library(grpc
   src/core/lib/iomgr/socket_utils_common_posix.cc
   src/core/lib/iomgr/socket_utils_linux.cc
   src/core/lib/iomgr/socket_utils_posix.cc
+  src/core/lib/iomgr/d_resolve_address_posix.cc
+  src/core/lib/iomgr/d_socket_utils_common_posix.cc
+  src/core/lib/iomgr/d_socket_utils_posix.cc
+  src/core/lib/iomgr/d_tcp_server_posix.cc
+  src/core/lib/iomgr/d_tcp_server_utils_posix_common.cc
+  src/core/lib/iomgr/d_unix_sockets_posix.cc
   src/core/lib/iomgr/socket_utils_uv.cc
   src/core/lib/iomgr/socket_utils_windows.cc
   src/core/lib/iomgr/socket_windows.cc
   src/core/lib/iomgr/tcp_client.cc
+src/core/lib/iomgr/d_tcp_client.cc
   src/core/lib/iomgr/tcp_client_cfstream.cc
   src/core/lib/iomgr/tcp_client_custom.cc
   src/core/lib/iomgr/tcp_client_posix.cc
+src/core/lib/iomgr/d_tcp_client_posix.cc
   src/core/lib/iomgr/tcp_client_windows.cc
   src/core/lib/iomgr/tcp_custom.cc
   src/core/lib/iomgr/tcp_posix.cc
   src/core/lib/iomgr/tcp_server.cc
+  src/core/lib/iomgr/d_tcp_server.cc
   src/core/lib/iomgr/tcp_server_custom.cc
   src/core/lib/iomgr/tcp_server_posix.cc
   src/core/lib/iomgr/tcp_server_utils_posix_common.cc
@@ -2092,17 +2110,26 @@ add_library(grpc_cronet
   src/core/lib/iomgr/socket_utils_common_posix.cc
   src/core/lib/iomgr/socket_utils_linux.cc
   src/core/lib/iomgr/socket_utils_posix.cc
+  src/core/lib/iomgr/d_resolve_address_posix.cc
+  src/core/lib/iomgr/d_socket_utils_common_posix.cc
+  src/core/lib/iomgr/d_socket_utils_posix.cc
+  src/core/lib/iomgr/d_tcp_server_posix.cc
+  src/core/lib/iomgr/d_tcp_server_utils_posix_common.cc
+  src/core/lib/iomgr/d_unix_sockets_posix.cc
   src/core/lib/iomgr/socket_utils_uv.cc
   src/core/lib/iomgr/socket_utils_windows.cc
   src/core/lib/iomgr/socket_windows.cc
   src/core/lib/iomgr/tcp_client.cc
+src/core/lib/iomgr/d_tcp_client.cc
   src/core/lib/iomgr/tcp_client_cfstream.cc
   src/core/lib/iomgr/tcp_client_custom.cc
   src/core/lib/iomgr/tcp_client_posix.cc
+src/core/lib/iomgr/d_tcp_client_posix.cc
   src/core/lib/iomgr/tcp_client_windows.cc
   src/core/lib/iomgr/tcp_custom.cc
   src/core/lib/iomgr/tcp_posix.cc
   src/core/lib/iomgr/tcp_server.cc
+  src/core/lib/iomgr/d_tcp_server.cc
   src/core/lib/iomgr/tcp_server_custom.cc
   src/core/lib/iomgr/tcp_server_posix.cc
   src/core/lib/iomgr/tcp_server_utils_posix_common.cc
@@ -2522,17 +2549,26 @@ add_library(grpc_test_util
   src/core/lib/iomgr/socket_utils_common_posix.cc
   src/core/lib/iomgr/socket_utils_linux.cc
   src/core/lib/iomgr/socket_utils_posix.cc
+  src/core/lib/iomgr/d_resolve_address_posix.cc
+  src/core/lib/iomgr/d_socket_utils_common_posix.cc
+  src/core/lib/iomgr/d_socket_utils_posix.cc
+  src/core/lib/iomgr/d_tcp_server_posix.cc
+  src/core/lib/iomgr/d_tcp_server_utils_posix_common.cc
+  src/core/lib/iomgr/d_unix_sockets_posix.cc
   src/core/lib/iomgr/socket_utils_uv.cc
   src/core/lib/iomgr/socket_utils_windows.cc
   src/core/lib/iomgr/socket_windows.cc
   src/core/lib/iomgr/tcp_client.cc
+src/core/lib/iomgr/d_tcp_client.cc
   src/core/lib/iomgr/tcp_client_cfstream.cc
   src/core/lib/iomgr/tcp_client_custom.cc
   src/core/lib/iomgr/tcp_client_posix.cc
+src/core/lib/iomgr/d_tcp_client_posix.cc
   src/core/lib/iomgr/tcp_client_windows.cc
   src/core/lib/iomgr/tcp_custom.cc
   src/core/lib/iomgr/tcp_posix.cc
   src/core/lib/iomgr/tcp_server.cc
+  src/core/lib/iomgr/d_tcp_server.cc
   src/core/lib/iomgr/tcp_server_custom.cc
   src/core/lib/iomgr/tcp_server_posix.cc
   src/core/lib/iomgr/tcp_server_utils_posix_common.cc
@@ -2867,17 +2903,26 @@ add_library(grpc_test_util_unsecure
   src/core/lib/iomgr/socket_utils_common_posix.cc
   src/core/lib/iomgr/socket_utils_linux.cc
   src/core/lib/iomgr/socket_utils_posix.cc
+  src/core/lib/iomgr/d_resolve_address_posix.cc
+  src/core/lib/iomgr/d_socket_utils_common_posix.cc
+  src/core/lib/iomgr/d_socket_utils_posix.cc
+  src/core/lib/iomgr/d_tcp_server_posix.cc
+  src/core/lib/iomgr/d_tcp_server_utils_posix_common.cc
+  src/core/lib/iomgr/d_unix_sockets_posix.cc
   src/core/lib/iomgr/socket_utils_uv.cc
   src/core/lib/iomgr/socket_utils_windows.cc
   src/core/lib/iomgr/socket_windows.cc
   src/core/lib/iomgr/tcp_client.cc
+src/core/lib/iomgr/d_tcp_client.cc
   src/core/lib/iomgr/tcp_client_cfstream.cc
   src/core/lib/iomgr/tcp_client_custom.cc
   src/core/lib/iomgr/tcp_client_posix.cc
+src/core/lib/iomgr/d_tcp_client_posix.cc
   src/core/lib/iomgr/tcp_client_windows.cc
   src/core/lib/iomgr/tcp_custom.cc
   src/core/lib/iomgr/tcp_posix.cc
   src/core/lib/iomgr/tcp_server.cc
+  src/core/lib/iomgr/d_tcp_server.cc
   src/core/lib/iomgr/tcp_server_custom.cc
   src/core/lib/iomgr/tcp_server_posix.cc
   src/core/lib/iomgr/tcp_server_utils_posix_common.cc
@@ -3188,17 +3233,26 @@ add_library(grpc_unsecure
   src/core/lib/iomgr/socket_utils_common_posix.cc
   src/core/lib/iomgr/socket_utils_linux.cc
   src/core/lib/iomgr/socket_utils_posix.cc
+  src/core/lib/iomgr/d_resolve_address_posix.cc
+  src/core/lib/iomgr/d_socket_utils_common_posix.cc
+  src/core/lib/iomgr/d_socket_utils_posix.cc
+  src/core/lib/iomgr/d_tcp_server_posix.cc
+  src/core/lib/iomgr/d_tcp_server_utils_posix_common.cc
+  src/core/lib/iomgr/d_unix_sockets_posix.cc
   src/core/lib/iomgr/socket_utils_uv.cc
   src/core/lib/iomgr/socket_utils_windows.cc
   src/core/lib/iomgr/socket_windows.cc
   src/core/lib/iomgr/tcp_client.cc
+src/core/lib/iomgr/d_tcp_client.cc
   src/core/lib/iomgr/tcp_client_cfstream.cc
   src/core/lib/iomgr/tcp_client_custom.cc
   src/core/lib/iomgr/tcp_client_posix.cc
+src/core/lib/iomgr/d_tcp_client_posix.cc
   src/core/lib/iomgr/tcp_client_windows.cc
   src/core/lib/iomgr/tcp_custom.cc
   src/core/lib/iomgr/tcp_posix.cc
   src/core/lib/iomgr/tcp_server.cc
+  src/core/lib/iomgr/d_tcp_server.cc
   src/core/lib/iomgr/tcp_server_custom.cc
   src/core/lib/iomgr/tcp_server_posix.cc
   src/core/lib/iomgr/tcp_server_utils_posix_common.cc

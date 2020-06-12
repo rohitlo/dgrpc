@@ -31,7 +31,7 @@ namespace grpc {
 namespace internal {
 class GrpcLibrary final : public GrpcLibraryInterface {
  public:
-  void init() override { grpc_init(); }
+  void init() override { puts("init() from grpc_library.h"); grpc_init(); }
   void shutdown() override { grpc_shutdown(); }
 };
 
@@ -39,6 +39,7 @@ class GrpcLibrary final : public GrpcLibraryInterface {
 class GrpcLibraryInitializer final {
  public:
   GrpcLibraryInitializer() {
+puts("GrpcLibraryInitializer in grpc_library.h");
     if (grpc::g_glip == nullptr) {
       static auto* const g_gli = new GrpcLibrary();
       grpc::g_glip = g_gli;

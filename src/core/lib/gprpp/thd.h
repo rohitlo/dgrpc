@@ -126,6 +126,7 @@ class Thread {
   ~Thread() { GPR_ASSERT(!options_.joinable() || impl_ == nullptr); }
 
   void Start() {
+puts("Start() in thd.h");
     if (impl_ != nullptr) {
       GPR_ASSERT(state_ == ALIVE);
       state_ = STARTED;

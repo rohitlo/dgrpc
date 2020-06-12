@@ -63,6 +63,7 @@ void grpc_custom_iomgr_init(grpc_socket_vtable* socket,
                             grpc_custom_resolver_vtable* resolver,
                             grpc_custom_timer_vtable* timer,
                             grpc_custom_poller_vtable* poller) {
+puts("grpc_custom_iomgr_init in iomgr_custom");
   g_custom_iomgr_enabled = true;
   grpc_custom_endpoint_init(socket);
   grpc_custom_timer_init(timer);

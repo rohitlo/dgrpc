@@ -36,7 +36,7 @@
 
 extern grpc_core::TraceFlag grpc_tcp_trace;
 
-GrpcLibraryInitHolder::GrpcLibraryInitHolder() { grpc_init(); }
+GrpcLibraryInitHolder::GrpcLibraryInitHolder() { puts("Init in cfstream_hanlde.cc" ); grpc_init(); }
 
 GrpcLibraryInitHolder::~GrpcLibraryInitHolder() { grpc_shutdown(); }
 

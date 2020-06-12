@@ -52,6 +52,7 @@ static grpc_iomgr_object g_root_object;
 static bool g_grpc_abort_on_leaks;
 
 void grpc_iomgr_init() {
+puts("grpc_iomgr_init in iomgr.cc");
   grpc_core::ExecCtx exec_ctx;
   grpc_determine_iomgr_platform();
   g_shutdown = 0;
