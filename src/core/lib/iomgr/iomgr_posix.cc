@@ -32,7 +32,7 @@
 #include "src/core/lib/iomgr/tcp_server.h"
 #include "src/core/lib/iomgr/timer.h"
 
-extern grpc_tcp_server_vtable grpc_posix_tcp_server_vtable;
+extern grpc_tcp_server_vtable d_grpc_posix_tcp_server_vtable;
 extern grpc_tcp_client_vtable d_grpc_posix_tcp_client_vtable;
 extern grpc_timer_vtable grpc_generic_timer_vtable;
 extern grpc_pollset_vtable grpc_posix_pollset_vtable;
@@ -75,7 +75,7 @@ static grpc_iomgr_platform_vtable vtable = {
 void grpc_set_default_iomgr_platform() {
 puts("posix IOMGR in iomgr_posix.cc");
   grpc_set_tcp_client_impl(&d_grpc_posix_tcp_client_vtable);
-  grpc_set_tcp_server_impl(&grpc_posix_tcp_server_vtable);
+  grpc_set_tcp_server_impl(&d_grpc_posix_tcp_server_vtable);
   grpc_set_timer_impl(&grpc_generic_timer_vtable);
   grpc_set_pollset_vtable(&grpc_posix_pollset_vtable);
   grpc_set_pollset_set_vtable(&grpc_posix_pollset_set_vtable);
